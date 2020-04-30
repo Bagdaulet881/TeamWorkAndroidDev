@@ -1,2 +1,4 @@
-include ':app'
+include ':app', ':changedmap'
 rootProject.name='Megogo'
+//include ':app', 'mapbonus'
+//include ':test'

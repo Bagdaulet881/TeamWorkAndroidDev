@@ -1,17 +1,12 @@
 package com.example.moviedbapi.main.user
 
-
 import androidx.appcompat.app.AlertDialog
 import android.app.Activity
-import android.content.ContentResolver
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ArrayAdapter
@@ -35,6 +30,12 @@ import android.Manifest
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Environment
+import com.example.moviedbapi.main.map.Map2
+
+
+
+
+
 import java.io.*
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -51,6 +52,7 @@ class UserFragment : ParentFragment() {
     private lateinit var ivAvatar: ImageView
     private lateinit var buttonCamera: Button
     private lateinit var buttonGallery: Button
+    private lateinit var map: Button
     private var selectedPhotoFile: File? = null
 
     private lateinit var showText: TextView
@@ -89,6 +91,7 @@ class UserFragment : ParentFragment() {
         ivAvatar = findViewById(R.id.ivAvatar)
         buttonCamera = findViewById(R.id.buttonCamera)
         buttonGallery = findViewById(R.id.buttonGallery)
+        map = findViewById(R.id.map)
         ivAvatar.setImageURI(getAvaFromStorage(saveOrGetAvaName("current", 2)))
 
         logout.setOnClickListener() {
@@ -109,6 +112,9 @@ class UserFragment : ParentFragment() {
 
         buttonGallery.setOnClickListener {
             getPermissionForGallery()
+        }
+        map.setOnClickListener {
+            showDirection()
         }
     }
 
@@ -315,7 +321,15 @@ class UserFragment : ParentFragment() {
             openCamera()
         }
     }
-
+    private fun showDirection(){
+        Toast.makeText(context, "workss", Toast.LENGTH_SHORT).show()
+//        com.example.google
+//val intent = Intent(activity, Class.forName("changedmap.MainActivity")).kotlin
+//    startActivity(intent);
+        val intent = Intent (activity, Map2::class.java)
+        activity?.startActivity(intent)
+        startActivity(intent)
+    }
     private fun getPermissionForGallery() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val galleryGranted = ContextCompat.checkSelfPermission(
