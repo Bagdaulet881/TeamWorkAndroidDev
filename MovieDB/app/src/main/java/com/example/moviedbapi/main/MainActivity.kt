@@ -2,6 +2,8 @@ package com.example.moviedbapi.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -14,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         val navController = Navigation.findNavController(this, R.id.nav_fragment)
         val appBarConfiguration = AppBarConfiguration(
@@ -26,4 +30,5 @@ class MainActivity : AppCompatActivity() {
         )
         navView.setupWithNavController(navController)
     }
+
 }

@@ -186,5 +186,14 @@
             app:layout_constraintEnd_toEndOf="@+id/buttonGallery"
             app:layout_constraintStart_toStartOf="@+id/buttonGallery"
             app:layout_constraintTop_toBottomOf="@+id/buttonGallery" />
+
+        <Button
+            android:id="@+id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAP"
+            app:layout_constraintEnd_toEndOf="@+id/buttonGallery"
+            app:layout_constraintStart_toStartOf="@+id/buttonGallery"
+            app:layout_constraintTop_toBottomOf="@+id/buttonGallery" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
